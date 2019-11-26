@@ -1,3 +1,20 @@
+# All files starting with a dot
+.*
+
+# Do NOT exclude some special files starting with a dot
+!/.gitignore
+!*.gitkeep
+!.mvn
+
+# Maven target
+/target
+
+# Eclipse binary
+bin
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
 # Compiled class file
 *.class
 
