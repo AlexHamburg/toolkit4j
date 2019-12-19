@@ -20,6 +20,12 @@
 		<system>GitHub Issues</system>
 		<url>https://github.com/AlexHamburg/toolkit4j/issues</url>
 	</issueManagement>
+	
+	<properties>
+	  <sonar.projectKey>AlexHamburg_toolkit4j</sonar.projectKey>
+	  <sonar.organization>alexhamburg</sonar.organization>
+	  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 
 	<dependencies>
 		

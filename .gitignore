@@ -5,6 +5,7 @@
 !/.gitignore
 !*.gitkeep
 !.mvn
+!.circleci
 
 # Maven target
 /target
