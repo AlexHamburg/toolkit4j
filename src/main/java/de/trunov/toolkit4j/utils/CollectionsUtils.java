@@ -1,6 +1,7 @@
 package de.trunov.toolkit4j.utils;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * Helper / Utils methods for operations with collections.
@@ -40,8 +41,8 @@ public class CollectionsUtils {
      * @param map    Map.
      * @return True if map is empty.
      */
-    public static boolean isMapEmpty(final Collection<?> collection) {
-        return collection == null || collection.size() == 0;
+    public static boolean isMapEmpty(final Map<?, ?> map) {
+        return map == null || map.size() == 0;
     }
     
     /**
@@ -50,7 +51,7 @@ public class CollectionsUtils {
      * @param map    Map.
      * @return True if map is not empty.
      */
-    public static boolean isMapNotEmpty(final Collection<?> collection) {
-        return collection != null && collection.size() > 0;
+    public static boolean isMapNotEmpty(final Map<?, ?> map) {
+        return map != null && map.size() > 0;
     }
 }
