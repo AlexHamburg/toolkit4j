@@ -4,6 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -52,6 +56,14 @@ public class StringUtilsTest {
         StringUtilsTest.notSameCharString1 = " qqqq";
         StringUtilsTest.notSameCharString2 = "qq q";
         StringUtilsTest.notSameCharString3 = "qq7q";
+    }
+    
+    @Test
+    public void constructorTest() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+        Constructor<StringUtils> constructor = StringUtils.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
     @Test
