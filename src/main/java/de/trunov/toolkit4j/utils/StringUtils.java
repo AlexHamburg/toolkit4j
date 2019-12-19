@@ -24,10 +24,7 @@ public class StringUtils {
         if (str.length() == 0) {
             return true;
         }
-        if (StringUtils.containsOnly(str, ' ')) {
-            return true;
-        }
-        return false;
+        return StringUtils.containsOnly(str, ' ');
     }
     
     /**
@@ -42,10 +39,7 @@ public class StringUtils {
         if (str.length() == 0) {
             return false;
         }
-        if (StringUtils.containsOnly(str, ' ')) {
-            return false;
-        }
-        return true;
+        return !StringUtils.containsOnly(str, ' ');
     }
     
     /**
@@ -74,10 +68,8 @@ public class StringUtils {
         return true;
     }
     
+    // TODO
     public static boolean containsOnlySameChars(final String str) {
-        if (str == null || str.isEmpty()) {
-            return false;
-        }
-        return false;
+        return (str == null || str.isEmpty());
     }
 }

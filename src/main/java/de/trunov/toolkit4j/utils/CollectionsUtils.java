@@ -22,7 +22,7 @@ public class CollectionsUtils {
      * @return True if collection is empty.
      */
     public static boolean isCollectionEmpty(final Collection<?> collection) {
-        return collection == null || collection.size() == 0;
+        return collection == null || collection.isEmpty();
     }
     
     /**
@@ -32,7 +32,7 @@ public class CollectionsUtils {
      * @return True if collection is not empty.
      */
     public static boolean isCollectionNotEmpty(final Collection<?> collection) {
-        return collection != null && collection.size() > 0;
+        return collection != null && !collection.isEmpty();
     }
     
     /**
