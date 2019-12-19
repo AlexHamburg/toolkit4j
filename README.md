@@ -9,3 +9,4 @@ During the implementation of some modules in the library were used suggestions a
 
 ## Used dependencies
 - JAVAX (JavaEE API 8.0), see: [Maven docs](https://mvnrepository.com/artifact/javax/javaee-api/8.0)
+ 
