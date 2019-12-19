@@ -28,6 +28,8 @@ import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import de.trunov.toolkit4j.exceptions.BadAuthResponseException;
+
 /**
  * Helper methods in the work with Auth Keycloak server.
  */
@@ -53,9 +55,10 @@ public class AuthUtils {
 	 * 
 	 * @return Header value directly usable for the
 	 *         javax.ws.rs.core.HttpHeaders.AUTHORIZATION header.
+	 * @throws BadResponseException 
 	 */
 	public static String readAccessHeaderValue(final Client client, final String authUrl,
-			final String grantType, final String clientId, final String userName, final String password) {
+			final String grantType, final String clientId, final String userName, final String password) throws BadAuthResponseException {
 		
 		return "Bearer " + AuthUtils.getKeycloakAccessToken(client, authUrl, grantType, clientId, userName, password);
 	}
@@ -72,9 +75,10 @@ public class AuthUtils {
 	 * @param password	User's password.
 	 * 
 	 * @return	Auth token in the String representation.
+	 * @throws BadResponseException 
 	 */
 	public static String getKeycloakAccessToken(final Client client, final String authUrl,
-			final String grantType, final String clientId, final String userName, final String password) {
+			final String grantType, final String clientId, final String userName, final String password) throws BadAuthResponseException {
 
 		final Form form = new Form();
 		form.param("username", userName);
@@ -88,12 +92,13 @@ public class AuthUtils {
 				.post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE));
 		try {
 			if (response.getStatus() != 200) {
-				throw new RuntimeException(target.getUri() + " " + response.getStatusInfo().getReasonPhrase() + " ["
-						+ response.getStatus() + "]");
+				throw new BadAuthResponseException(target.getUri(), response.getStatusInfo().getReasonPhrase(),
+				        response.getStatus());
 			}
 			final String json = response.readEntity(String.class);
-			final JsonReader reader = Json.createReader(new StringReader(json));
-			return reader.readObject().getJsonString("access_token").getString();
+			try (final JsonReader reader = Json.createReader(new StringReader(json))) {
+			    return reader.readObject().getJsonString("access_token").getString();
+			}
 		} finally {
 			response.close();
 		}

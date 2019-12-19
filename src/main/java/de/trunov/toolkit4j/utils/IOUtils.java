@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,9 +47,7 @@ public class IOUtils {
 		final File[] directoryListing = dir.listFiles();
 		final List<File> files = new ArrayList<>();
 		if (directoryListing != null && directoryListing.length > 0) {
-			for (final File child : directoryListing) {
-				files.add(child);
-			}
+		    Arrays.asList(directoryListing);
 		}
 		return files;
 	}
@@ -62,8 +61,8 @@ public class IOUtils {
 	 */
 	@SuppressWarnings("resource")
 	public static String getTimetableAsJsonStringFromUrl(final URL urlToJsonFile) throws IOException {
-		final Scanner s = new Scanner(urlToJsonFile.openStream()).useDelimiter("\\A");
-		String result = s.hasNext() ? s.next() : "";
-		return result;
+	    try (final Scanner s = new Scanner(urlToJsonFile.openStream()).useDelimiter("\\A");) {
+	        return s.hasNext() ? s.next() : "";
+	    }
 	}
 }
