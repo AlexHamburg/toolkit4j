@@ -24,6 +24,7 @@ public class IOUtils {
 	 * Return files names from the current dir.
 	 * 
 	 * @param pathToDir Path to directory with files.
+	 * @return List with files names.
 	 */
 	public static List<String> getFileNamesInDir(final String pathToDir) {
 		final File dir = new File(pathToDir);
@@ -41,6 +42,7 @@ public class IOUtils {
 	 * Return files from the current dir.
 	 * 
 	 * @param pathToDir Path to directory with files.
+	 * @return List with files.
 	 */
 	public static List<File> getFilesInDir(final String pathToDir) {
 		final File dir = new File(pathToDir);

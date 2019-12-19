@@ -55,7 +55,7 @@ public class AuthUtils {
 	 * 
 	 * @return Header value directly usable for the
 	 *         javax.ws.rs.core.HttpHeaders.AUTHORIZATION header.
-	 * @throws BadResponseException 
+	 * @throws BadAuthResponseException 
 	 */
 	public static String readAccessHeaderValue(final Client client, final String authUrl,
 			final String grantType, final String clientId, final String userName, final String password) throws BadAuthResponseException {
@@ -75,7 +75,7 @@ public class AuthUtils {
 	 * @param password	User's password.
 	 * 
 	 * @return	Auth token in the String representation.
-	 * @throws BadResponseException 
+	 * @throws BadAuthResponseException 
 	 */
 	public static String getKeycloakAccessToken(final Client client, final String authUrl,
 			final String grantType, final String clientId, final String userName, final String password) throws BadAuthResponseException {

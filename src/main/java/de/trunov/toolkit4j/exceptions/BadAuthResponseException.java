@@ -15,6 +15,10 @@ public class BadAuthResponseException extends Exception implements ExceptionShor
     
     /**
      * Constructor with mandatory data.
+     * 
+     * @param targetUri URI of an auth. server.
+     * @param reason    Reason from response.
+     * @param status    HTTP Status.
      */
     public BadAuthResponseException(final URI targetUri, final String reason, final int status) {
         super("Bad Response from Auth Server '" + targetUri + "' with reason: '" + reason + "' Status: '" + status + "'");
