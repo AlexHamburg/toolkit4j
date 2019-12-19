@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar -Dsonar.login=${SONAR_KEY}
+          command: mvn verify sonar:sonar -Dsonar.login=${SONAR_TOKEN}
 
 workflows:
   main:
