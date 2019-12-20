@@ -13,6 +13,12 @@ public class BadAuthResponseException extends Exception implements ExceptionShor
 
     private static final String ERROR_CODE = "BAD_RESPONSE";
     
+    private URI targetUri;
+    
+    private String reason;
+    
+    private int status;
+    
     /**
      * Constructor with mandatory data.
      * 
@@ -22,6 +28,9 @@ public class BadAuthResponseException extends Exception implements ExceptionShor
      */
     public BadAuthResponseException(final URI targetUri, final String reason, final int status) {
         super("Bad Response from Auth Server '" + targetUri + "' with reason: '" + reason + "' Status: '" + status + "'");
+        this.targetUri = targetUri;
+        this.reason = reason;
+        this.status = status;
     }
 
     /**
@@ -32,5 +41,17 @@ public class BadAuthResponseException extends Exception implements ExceptionShor
     @Override
     public final String getShortId() {
         return ERROR_CODE;
-    }   
+    }
+
+    public URI getTargetUri() {
+        return targetUri;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public int getStatus() {
+        return status;
+    }
 }

@@ -47,9 +47,9 @@ public class IOUtils {
 	public static List<File> getFilesInDir(final String pathToDir) {
 		final File dir = new File(pathToDir);
 		final File[] directoryListing = dir.listFiles();
-		final List<File> files = new ArrayList<>();
+		List<File> files = null;
 		if (directoryListing != null && directoryListing.length > 0) {
-		    Arrays.asList(directoryListing);
+		    files = Arrays.asList(directoryListing);
 		}
 		return files;
 	}
@@ -62,7 +62,7 @@ public class IOUtils {
 	 * @throws IOException
 	 */
 	@SuppressWarnings("resource")
-	public static String getTimetableAsJsonStringFromUrl(final URL urlToJsonFile) throws IOException {
+	public static String getDataAsJsonStringFromUrl(final URL urlToJsonFile) throws IOException {
 	    try (final Scanner s = new Scanner(urlToJsonFile.openStream()).useDelimiter("\\A");) {
 	        return s.hasNext() ? s.next() : "";
 	    }

@@ -1,5 +1,7 @@
 package de.trunov.toolkit4j.utils;
 
+import java.util.Arrays;
+
 /**
  * Helper / Utils methods for operations with String values.
  */
@@ -68,8 +70,17 @@ public class StringUtils {
         return true;
     }
     
-    // TODO
-    public static boolean containsOnlySameChars(final String str) {
-        return (str == null || str.isEmpty());
+    /**
+     * Check if both strings contain the same chars.
+     * @param str1  First string.
+     * @param str2  Second string.
+     * @return  Boolean.
+     */
+    public static boolean haveSameChars(final String str1, final String str2) {
+        char[] chars1 = str1.toCharArray();
+        char[] chars2 = str2.toCharArray();
+        Arrays.sort(chars1);
+        Arrays.sort(chars2);
+        return Arrays.equals(chars1, chars2);
     }
 }
