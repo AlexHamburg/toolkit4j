@@ -28,7 +28,7 @@ public class IOUtilsTest {
     }
     
     @Test
-    public void getFilesInDirTest() {
+    public void getFilesInDirTest() { 
         assertEquals(2, IOUtils.getFilesInDir(IOUtilsTest.FILE_PATH).size());
     }
     
