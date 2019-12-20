@@ -52,11 +52,11 @@ public class CollectionsUtilsTest {
     
     @Test
     public void isCollectionNotEmptyTest() {
-        assertFalse(CollectionsUtils.isCollectionEmpty(CollectionsUtilsTest.COLLECTION_NULL));
-        assertFalse(CollectionsUtils.isCollectionEmpty(CollectionsUtilsTest.EMPTY_LIST));
-        assertFalse(CollectionsUtils.isCollectionEmpty(CollectionsUtilsTest.EMPTY_SET));
-        assertTrue(CollectionsUtils.isCollectionEmpty(CollectionsUtilsTest.NOT_EMPTY_LIST));
-        assertTrue(CollectionsUtils.isCollectionEmpty(CollectionsUtilsTest.NOT_EMPTY_SET));
+        assertFalse(CollectionsUtils.isCollectionNotEmpty(CollectionsUtilsTest.COLLECTION_NULL));
+        assertFalse(CollectionsUtils.isCollectionNotEmpty(CollectionsUtilsTest.EMPTY_LIST));
+        assertFalse(CollectionsUtils.isCollectionNotEmpty(CollectionsUtilsTest.EMPTY_SET));
+        assertTrue(CollectionsUtils.isCollectionNotEmpty(CollectionsUtilsTest.NOT_EMPTY_LIST));
+        assertTrue(CollectionsUtils.isCollectionNotEmpty(CollectionsUtilsTest.NOT_EMPTY_SET));
     }
     
     @Test
