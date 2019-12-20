@@ -34,7 +34,7 @@ public class IOUtilsTest {
     
     @Test
     public void getDataAsJsonStringFromUrlTest() throws MalformedURLException, IOException {
-        assertEquals(IOUtils.getDataAsJsonStringFromUrl(new File(IOUtilsTest.FILE_PATH + "first.json").toURI().toURL()), 
-                "\"test\": \"success\"");
+        assertEquals("\"test\": \"success\"",
+                IOUtils.getDataAsJsonStringFromUrl(new File(IOUtilsTest.FILE_PATH + "first.json").toURI().toURL()));
     }
 }
