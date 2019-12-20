@@ -13,11 +13,11 @@ public class BadAuthResponseException extends Exception implements ExceptionShor
 
     private static final String ERROR_CODE = "BAD_RESPONSE";
     
-    private URI targetUri;
+    private final URI targetUri;
     
-    private String reason;
+    private final String reason;
     
-    private int status;
+    private final int status;
     
     /**
      * Constructor with mandatory data.
